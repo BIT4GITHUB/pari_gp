@@ -1,0 +1,24 @@
+PARI学习记录：
+
+//打印mod(p)的本原元，主要是zorder函数
+primitive_root(p)=
+{
+	local(i);
+	for(i=2,p-1,
+		if(znorder(Mod(i,p))==(p-1),  
+			print("i= ",i);
+		);
+	);
+}
+
+//因式分解factor
+factor(Mod(1,2)*(x^7+1));
+lift(%x)   //提取结果
+
+//gcd的使用
+gcd(Mod(1,2)*(x^7+1),Mod(1,2)*(x^5+x^6+x^2+1))  //计算域上的多项式的最大公因式
+
+/*将结果输入至文件
+\l an.txt
+primitive_root(97)  /*自定义的函数
+\l
